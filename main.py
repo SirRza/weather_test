@@ -19,9 +19,12 @@ def check_city() -> Response:
     response = requests.get(url + city_name)
     if not city_name:
         print("city name is empty.")
+        exit()
     if response.status_code != 200:
         print(f"can't find your city {city_name}, run again...")
-    return response
+        exit()
+    else:
+        return response
 
 def get_data_weathermap() -> WeatherMap:
     response = check_city().json()
