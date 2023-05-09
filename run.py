@@ -1,5 +1,5 @@
-from apps.app import appi
+from test_app import app
 
 
 if __name__ == "__main__":
-    appi.run(debug=True)
+    app.run(debug=True)
