@@ -1,11 +1,15 @@
-FROM python:3.11
+#syntax=docker/dockerfile:1
 
-WORKDIR ./
+FROM python:3.11-slim-buster
+
+WORKDIR /test_docker
+
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN -r requirements.txt
-
 EXPOSE 5000
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
