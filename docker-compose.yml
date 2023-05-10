@@ -10,6 +10,11 @@ services:
     image: mysql
     ports:
       - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=HackMeIfYouCan@37HahA
+      - MYSQL_DATABASE=test_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=HackMeIfYouCan@37HahA
 
   flask_app:
     build: .
