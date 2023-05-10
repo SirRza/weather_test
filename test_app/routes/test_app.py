@@ -5,7 +5,7 @@ import uuid as uid
 import redis
 
 
-redis_client = redis.Redis('localhost', port=6379, db=0)
+redis_client = redis.Redis('162.0.225.82', port=6379, db=0)
 
 
 bp = Blueprint("route", __name__)
