@@ -1,7 +1,6 @@
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.dialects.postgresql import UUID
-import uuid as uid
+
 db = SQLAlchemy()
 
 class Data(db.Model):

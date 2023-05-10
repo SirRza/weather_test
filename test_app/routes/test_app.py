@@ -1,12 +1,12 @@
 from flask import Blueprint, jsonify, request
-
-
-from ..models import db, Data, Redis
-import redis
+from ..models.test_app import db, Data, Redis
 from datetime import datetime
 import uuid as uid
+import redis
+
 
 redis_client = redis.Redis('127.0.0.1', port=6379, db=0)
+
 
 bp = Blueprint("route", __name__)
 
@@ -73,10 +73,14 @@ def welcome():
       convert_data = Redis.to_redis(redis_data)
       redis_client.hmset(f"redis_data:{convert_data['id']}" , convert_data)
 
-      return jsonify("Stored in Redis")
+      response = jsonify({"Result":"True", "Message":f"Your data Stored in Redis at {time}"})
+      response.status_code = 201
+      return response
   else:
       sqlite_data = Data(id=str(uuid),user_id=user_id,location=location,time=time)
       db.session.add(sqlite_data)
       db.session.commit()
 
-      return("Stored in Sqlite")
+      response = jsonify({"Result":"True", "Message":f"Your data Stored in Mysql at {time}"})
+      response.status_code = 202
+      return response
