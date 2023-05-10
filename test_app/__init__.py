@@ -3,6 +3,7 @@ from test_app.routes.test_app import bp
 from test_app.models.test_app import db
 from redis.exceptions import ConnectionError
 from sqlalchemy import exc as sqlalchemy_exec
+import MySQLdb
 #from flasgger import Swagger
 
 
