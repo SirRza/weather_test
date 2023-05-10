@@ -21,10 +21,9 @@ def handler_error_for_db(error):
     return jsonify({"result":"False", "Message":"Cant Connect to MySQL"})
 
 
-
 #Sqllite Config
 #app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///testData.db"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:HackMeIfYouCan@37HahA@mysql:3307/test_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://reza:123456789@mysql:3307/test_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
