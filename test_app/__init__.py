@@ -24,7 +24,7 @@ def handler_error_for_db(error):
 
 #Sqllite Config
 #app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///testData.db"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://{user}@{server}/{database}'.format(user='root', server='localhost', database='test_db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://{user}@{server}:{port}/{database}'.format(user='root', server='localhost', database='test_db', port=3307)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
